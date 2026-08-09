@@ -633,6 +633,53 @@ img {
   letter-spacing: 1px;
 }
 
+.service-badge-group {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.service-badge-group .service-badge {
+  position: static;
+}
+
+.sub-badge-gold {
+  background: rgba(212, 175, 55, 0.18) !important;
+  color: var(--accent-gold) !important;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.prayer-sub-item {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--primary-red);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+}
+
+.prayer-sub-item h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prayer-sub-item.highlight-kap {
+  border-left-color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.06);
+}
+
+.prayer-sub-item.highlight-kap h4 {
+  color: var(--accent-gold);
+}
+
 .service-icon {
   width: 60px;
   height: 60px;
