@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winners Chapel International Middlesbrough | Home of Signs & Wonders</title>
+  <meta name="description" content="Welcome to Winners Chapel International Middlesbrough. A vibrant church community in Teesside dedicated to preaching the Word of Faith and demonstrating God's power.">
+  
+  <!-- Google Fonts & FontAwesome / Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <div class="announcement-text">
+        <span class="live-pulse"></span>
+        <span class="announcement-badge">LIVE STREAM</span>
+        <span>Join our next service online or in-person in Middlesbrough!</span>
+      </div>
+      <div class="announcement-timer" id="headerCountdown">
+        Next Service in: <span id="headerTimer">Calculating...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <img src="logo.png?v=3" alt="Winners Chapel Logo" class="logo-img">
+        <div class="logo-text">
+          <span class="brand-title">WINNERS CHAPEL</span>
+          <span class="brand-title">INTERNATIONAL</span>
+          <span class="brand-sub">MIDDLESBROUGH</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#services" class="nav-link">Service&nbsp;Times</a>
+        <a href="#about" class="nav-link">About&nbsp;Us</a>
+        <a href="#testimonies" class="nav-link">Testimonies</a>
+        <a href="#wsf" class="nav-link">WSF&nbsp;Cells</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#giving" class="btn btn-outline"><i class="fa-solid fa-hand-holding-heart"></i> Ways&nbsp;to&nbsp;Give</a>
+        <button class="btn btn-primary" id="btnFirstTimerNav"><i class="fa-solid fa-user-plus"></i> I'm&nbsp;New&nbsp;Here</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-crown"></i> LIVING FAITH CHURCH WORLDWIDE
+      </div>
+      <h1 class="hero-title">
+        Experience <span class="highlight-red">Signs, Wonders</span> & The Supernatural Power of Faith
+      </h1>
+      <p class="hero-subtitle">
+        Welcome to Winners Chapel International Middlesbrough — A home for all nations, raising a people of dominion through the preaching of the Word of Faith.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#services" class="btn btn-primary btn-lg"><i class="fa-solid fa-calendar-check"></i> Join Us This Sunday</a>
+        <a href="#services" class="btn btn-glass btn-lg"><i class="fa-solid fa-clock"></i> Service Times</a>
+        <button class="btn btn-outline-white btn-lg" id="btnPrayerHero"><i class="fa-solid fa-hands-praying"></i> Submit Prayer Request</button>
+      </div>
+
+      <!-- Quick Info Strip -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong>Middlesbrough, UK</strong>
+            <span>Leonardo Hotel, Fry Street (TS1 1JH)</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <strong>Sunday Services</strong>
+            <span>10:00 AM Celebration Service</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-wine-glass"></i>
+          <div>
+            <strong>Wednesdays</strong>
+            <span>6:00 PM Communion Service</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Service Countdown Banner -->
+  <section class="countdown-section">
+    <div class="container">
+      <div class="countdown-card">
+        <div class="countdown-info">
+          <span class="tag-red">NEXT GATHERING</span>
+          <h3 id="nextServiceName">Sunday Celebration Service</h3>
+          <p id="nextServiceDetail">Join us for a glorious time in God's presence, praise, and the Word.</p>
+        </div>
+        <div class="countdown-clock" id="mainCountdown">
+          <div class="clock-unit">
+            <span class="number" id="cdDays">00</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="clock-colon">:</div>
+          <div class="clock-unit">
+            <span class="number" id="cdHours">00</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="clock-colon">:</div>
+          <div class="clock-unit">
+            <span class="number" id="cdMins">00</span>
+            <span class="label">Mins</span>
+          </div>
+          <div class="clock-colon">:</div>
+          <div class="clock-unit">
+            <span class="number" id="cdSecs">00</span>
+            <span class="label">Secs</span>
+          </div>
+        </div>
+        <div class="countdown-cta">
+          <a href="#services" class="btn btn-primary"><i class="fa-solid fa-route"></i> Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Schedules -->
+  <section class="section-padding bg-dark-gradient" id="services">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading">WEEKLY FELLOWSHIP</span>
+        <h2 class="section-title">Join Our <span class="highlight-red">Worship Services</span></h2>
+        <p class="section-desc">There is a seat reserved for you in God's presence. Come and experience transformation.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="service-card highlight-border">
+          <div class="service-badge">SUNDAY SERVICE</div>
+          <div class="service-icon"><i class="fa-solid fa-sun"></i></div>
+          <h3 class="service-name">Sunday Celebration Service</h3>
+          <p class="service-time"><i class="fa-regular fa-clock"></i> Every Sunday @ 10:00 AM</p>
+          <p class="service-location"><i class="fa-solid fa-location-dot"></i> Leonardo Hotel, Fry Street, Middlesbrough TS1 1JH</p>
+          <p class="service-desc">An empowering time of high praise, deep worship, intense prayers, and the uncompromised Word of Faith.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Communion Service (2nd Sunday)</li>
+            <li><i class="fa-solid fa-check"></i> Anointing Service (3rd Sunday)</li>
+            <li><i class="fa-solid fa-check"></i> End of Month Thanksgiving & Baby Dedication Service (Last Sunday)</li>
+            <li><i class="fa-solid fa-check"></i> Children's Church Available</li>
+          </ul>
+          <button class="btn btn-primary btn-block btnServiceReminder" data-service="Sunday Celebration Service">Set Reminder</button>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="service-card">
+          <div class="service-badge">MIDWEEK SERVICE</div>
+          <div class="service-icon"><i class="fa-solid fa-bread-slice"></i></div>
+          <h3 class="service-name">Midweek Communion Service</h3>
+          <p class="service-time"><i class="fa-regular fa-clock"></i> Every Wednesday @ 6:00 PM - 7:30 PM</p>
+          <p class="service-location"><i class="fa-solid fa-location-dot"></i> Church of Ascension, Penrith Road, Middlesbrough TS3 7JR</p>
+          <p class="service-desc">Break your fast with the Lord's Table! A spiritual midweek tune-up with Word teaching and Holy Communion.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Word Exploration</li>
+            <li><i class="fa-solid fa-check"></i> Holy Communion Table</li>
+            <li><i class="fa-solid fa-check"></i> Deliverance & Healing</li>
+          </ul>
+          <button class="btn btn-outline btn-block btnServiceReminder" data-service="Midweek Communion Service">Set Reminder</button>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="service-card">
+          <div class="service-badge">DAILY PRAYER</div>
+          <div class="service-icon"><i class="fa-solid fa-fire"></i></div>
+          <h3 class="service-name">Covenant Hour of Prayer (CHOP)</h3>
+          <p class="service-time"><i class="fa-regular fa-clock"></i> Mon – Sat @ 6:00 AM - 7:00 AM</p>
+          <p class="service-location"><i class="fa-solid fa-video"></i> Online Only (Zoom & Live Stream)</p>
+          <p class="service-desc">Start your day in power! Interceding for souls, church growth, personal breakthroughs, and kingdom advancement.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Morning Spiritual Fire</li>
+            <li><i class="fa-solid fa-check"></i> Kingdom Advancement</li>
+            <li><i class="fa-solid fa-check"></i> Online Only via Zoom</li>
+          </ul>
+          <button class="btn btn-outline btn-block btnServiceReminder" data-service="Covenant Hour of Prayer">Set Reminder</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Liberation Mandate Section -->
+  <section class="section-padding bg-light" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrapper">
+          <img src="/images/pastor_welcome.png" alt="Resident Pastor Winners Chapel Middlesbrough" class="about-img main-img">
+          <div class="about-experience-badge">
+            <span class="big-number">12</span>
+            <span class="badge-text">Pillars of the Liberation Mandate</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="sub-heading-red">ABOUT OUR COMMISSION</span>
+          <h2 class="about-title">Welcome to Winners Chapel International, Middlesbrough</h2>
+          <p class="about-lead">
+            One Mandate, Multiple Generations, All Nations
+          </p>
+          <p class="about-text">
+            Our Mandate for ministry was received from God in an 18-hour vision to the presiding Bishop of this commission, Bishop David O Oyedepo. During this vision, a commission was received from God to liberate mankind in all facets of human existence, to restore broken destinies, and to bring healing to the sick.
+          </p>
+          <p class="about-text">
+            This mandate was further confirmed in the epistle of Paul to the Ephesians, where God Said, “Above all, taking the shield of faith, wherewith ye shall be able to quench all the fiery darts of the wicked” (Eph 6:16). This was the genesis of this global ministry today. According to this mandate, the Word of Faith is the key to triumphant living.
+          </p>
+          <p class="about-text">
+            Shortly after that, a weekly teaching programme, popularly known as the Faith Liberation Hour, took off. Alongside, a caucus was put in place, tagged The Power House, which was involved in prayers and fasting, among others, towards the actualisation of this heavenly vision. Today, testimonies of liberation through our messages, books, CDs, DVDs, magazines, and other periodicals are humbling. The word of faith is working like fire for the liberation of mankind across the nations.
+          </p>
+
+          <div class="pillars-grid">
+            <div class="pillar-item"><i class="fa-solid fa-cross"></i> <span>FAITH</span></div>
+            <div class="pillar-item"><i class="fa-solid fa-book-bible"></i> <span>THE WORD</span></div>
+            <div class="pillar-item"><i class="fa-solid fa-bolt"></i> <span>THE HOLY GHOST</span></div>
+            <div class="pillar-item"><i class="fa-solid fa-wand-magic-sparkles"></i> <span>THE SUPERNATURAL</span></div>
+            <div class="pillar-item"><i class="fa-solid fa-gem"></i> <span>PROSPERITY</span></div>
+            <div class="pillar-item"><i class="fa-solid fa-brain"></i> <span>WISDOM</span></div>
+            <div class="pillar-item"><i class="fa-solid fa-music"></i> <span>PRAISE</span></div>
+            <div class="pillar-item"><i class="fa-solid fa-shield-halved"></i> <span>SUCCESS</span></div>
+          </div>
+
+          <div class="about-cta">
+            <button class="btn btn-primary" id="btnFirstTimerAbout"><i class="fa-solid fa-heart"></i> Plan Your First Visit</button>
+            <a href="#contact" class="btn btn-outline-dark"><i class="fa-solid fa-envelope"></i> Contact Pastorate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Praise Reports & Testimonies Grid -->
+  <section class="section-padding bg-dark-gradient" id="testimonies">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading">SIGNS & WONDERS</span>
+        <h2 class="section-title">Transformative <span class="highlight-red">Testimonies</span></h2>
+        <p class="section-desc">Read what God is doing in the lives of members at Winners Chapel Middlesbrough.</p>
+      </div>
+
+      <div class="testimony-filters">
+        <button class="filter-btn active" data-filter="all">All Testimonies</button>
+        <button class="filter-btn" data-filter="healing">Healing & Miracles</button>
+        <button class="filter-btn" data-filter="career">Job & Financial</button>
+        <button class="filter-btn" data-filter="family">Family & Breakthrough</button>
+      </div>
+
+      <div class="testimonies-grid" id="testimoniesGrid">
+        <!-- Testimony Card 1 -->
+        <div class="testimony-card" data-category="career">
+          <div class="testimony-header">
+            <div class="testimony-avatar"><i class="fa-solid fa-user-check"></i></div>
+            <div>
+              <h4>Bro. David K.</h4>
+              <span class="testimony-tag">Job & Financial Breakthrough</span>
+            </div>
+          </div>
+          <p class="testimony-text">
+            "After months of job searching in Teesside, I engaged in Covenant Hour of Prayer faithfully. During the Anointing Service, the Pastor declared open doors. Two days later, I received two high-paying job offers in IT!"
+          </p>
+          <div class="testimony-footer">
+            <span class="date"><i class="fa-regular fa-calendar"></i> July 2026</span>
+            <span class="praise"><i class="fa-solid fa-hands-clapping"></i> Praise God!</span>
+          </div>
+        </div>
+
+        <!-- Testimony Card 2 -->
+        <div class="testimony-card" data-category="healing">
+          <div class="testimony-header">
+            <div class="testimony-avatar"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div>
+              <h4>Sis. Grace O.</h4>
+              <span class="testimony-tag">Miracle Healing</span>
+            </div>
+          </div>
+          <p class="testimony-text">
+            "I had suffered severe chronic back pain for over 3 years. When I partook of the Holy Communion at Wednesday service with faith, the pain vanished instantly! I went for a medical checkup and the doctors confirmed me totally healed!"
+          </p>
+          <div class="testimony-footer">
+            <span class="date"><i class="fa-regular fa-calendar"></i> June 2026</span>
+            <span class="praise"><i class="fa-solid fa-hands-clapping"></i> Praise God!</span>
+          </div>
+        </div>
+
+        <!-- Testimony Card 3 -->
+        <div class="testimony-card" data-category="family">
+          <div class="testimony-header">
+            <div class="testimony-avatar"><i class="fa-solid fa-house-chimney-window"></i></div>
+            <div>
+              <h4>Mr & Mrs A.</h4>
+              <span class="testimony-tag">Family & Visa Miracle</span>
+            </div>
+          </div>
+          <p class="testimony-text">
+            "We were facing severe immigration delays for our family settlement in the UK. We sowed our Kingdom Advancement Seed and prayed during Shiloh sacrifice. Surprisingly, our passports returned approved with full Indefinite Leave!"
+          </p>
+          <div class="testimony-footer">
+            <span class="date"><i class="fa-regular fa-calendar"></i> May 2026</span>
+            <span class="praise"><i class="fa-solid fa-hands-clapping"></i> Praise God!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center margin-top-lg">
+        <button class="btn btn-primary btn-lg" id="btnSubmitTestimony"><i class="fa-solid fa-bullhorn"></i> Share Your Praise Report</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Winners Satellite Fellowship (WSF) Locator -->
+  <section class="section-padding bg-light" id="wsf">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading-red">COMMUNITY FELLOWSHIP</span>
+        <h2 class="section-title">Winners Satellite Fellowship (WSF)</h2>
+        <p class="section-desc">Connect with a home cell near you in Middlesbrough every Saturday @ 5:00 PM - 6:00 PM.</p>
+      </div>
+
+      <div class="wsf-search-wrapper">
+        <div class="wsf-search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <select id="wsfLocationSelect">
+            <option value="all">All Home Cells (14 Locations)...</option>
+            <option value="ts1">Middlesbrough Central (TS1)</option>
+            <option value="ts3">Middlesbrough East / TS3</option>
+            <option value="acklam">Acklam & TS5</option>
+            <option value="thornaby">Thornaby & Stockton (TS17 / TS19)</option>
+            <option value="billingham">Billingham (TS23)</option>
+            <option value="southbank">South Bank (TS6)</option>
+            <option value="darlington">Darlington (DL1)</option>
+            <option value="online">Online Cell (MS Teams)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="wsf-grid" id="wsfGrid">
+        <!-- 1. Anointed Home Cell -->
+        <div class="wsf-card" data-area="darlington">
+          <div class="wsf-icon"><i class="fa-solid fa-fire"></i></div>
+          <h4>1. Anointed Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> Flat, 22 High Northgate, Darlington (DL1 1UP)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> Darlington Area Cell</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Anointed Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 2. Breakthrough Home Cell -->
+        <div class="wsf-card" data-area="ts1">
+          <div class="wsf-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h4>2. Breakthrough Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 30 Warwick Street, Middlesbrough (TS1 4NX)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> TS1 Central Cell</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Breakthrough Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 3. Flourish Home Cell -->
+        <div class="wsf-card" data-area="thornaby">
+          <div class="wsf-icon"><i class="fa-solid fa-seedling"></i></div>
+          <h4>3. Flourish Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 11 Blencathra Close, Thornaby (TS17 8FT)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> Thornaby Cell</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Flourish Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 4. Gilead Home Cell -->
+        <div class="wsf-card" data-area="ts1">
+          <div class="wsf-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h4>4. Gilead Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 10 Aire Street, Middlesbrough (TS1 4PQ)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> TS1 Middlesbrough</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Gilead Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 5. Glory Home Cell -->
+        <div class="wsf-card" data-area="ts1">
+          <div class="wsf-icon"><i class="fa-solid fa-sun"></i></div>
+          <h4>5. Glory Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 85 Harford Street, Middlesbrough (TS1 4PR)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> TS1 Harford Cell</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Glory Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 6. Highway Home Cell -->
+        <div class="wsf-card" data-area="thornaby">
+          <div class="wsf-icon"><i class="fa-solid fa-route"></i></div>
+          <h4>6. Highway Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 30 Watering Drive, Summerville Quarters (TS19 8GG)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> Summerville Quarters</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Highway Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 7. Honour Home Cell -->
+        <div class="wsf-card" data-area="ts3">
+          <div class="wsf-icon"><i class="fa-solid fa-crown"></i></div>
+          <h4>7. Honour Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 44 Midville Walk (TS3 0RA)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> TS3 Midville</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Honour Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 8. Hope Home Cell -->
+        <div class="wsf-card" data-area="acklam">
+          <div class="wsf-icon"><i class="fa-solid fa-anchor"></i></div>
+          <h4>8. Hope Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 28 Henwood Close, Acklam (TS5 4NY)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> Acklam TS5</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Hope Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 9. Mercy Home Cell -->
+        <div class="wsf-card" data-area="ts1">
+          <div class="wsf-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <h4>9. Mercy Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 145 Southfield Road, Middlesbrough (TS1 3HB)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> Southfield Road TS1</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Mercy Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 10. New Era Home Cell -->
+        <div class="wsf-card" data-area="billingham">
+          <div class="wsf-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h4>10. New Era Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 23 Leeholme Garden, Billingham (TS23 3TJ)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> Billingham Cell</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="New Era Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 11. Solution Home Cell -->
+        <div class="wsf-card" data-area="ts3">
+          <div class="wsf-icon"><i class="fa-solid fa-key"></i></div>
+          <h4>11. Solution Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 14 Arundel Green (TS3 8HL)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> TS3 Arundel</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Solution Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 12. Victory Home Cell -->
+        <div class="wsf-card" data-area="southbank">
+          <div class="wsf-icon"><i class="fa-solid fa-trophy"></i></div>
+          <h4>12. Victory Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 7 Stephens Road, South Bank, Middlesbrough (TS6 6SH)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> South Bank TS6</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Victory Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 13. Wonders Home Cell -->
+        <div class="wsf-card" data-area="ts3">
+          <div class="wsf-icon"><i class="fa-solid fa-star"></i></div>
+          <h4>13. Wonders Home Cell</h4>
+          <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 96 Cottingham Drive, Middlesbrough (TS3 8JZ)</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> TS3 Cottingham</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Wonders Home Cell">Contact Cell Leader</button>
+        </div>
+
+        <!-- 14. Faith Home Cell (Online) -->
+        <div class="wsf-card" data-area="online">
+          <div class="wsf-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h4>14. Faith Home Cell (Online)</h4>
+          <p class="wsf-address"><i class="fa-solid fa-video"></i> Microsoft Teams Platform</p>
+          <p class="wsf-time"><i class="fa-regular fa-clock"></i> Saturdays @ 5:00 PM - 6:00 PM</p>
+          <p class="wsf-host"><strong>Fellowship Center:</strong> Virtual / Online Cell</p>
+          <button class="btn btn-sm btn-outline-dark btnConnectCell" data-cell="Faith Home Cell Online">Join Teams Meeting Link</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Online Giving & Seed Portal -->
+  <section class="section-padding bg-dark" id="giving">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading">KINGDOM ADVANCEMENT</span>
+        <h2 class="section-title">WAYS TO <span class="highlight-red">GIVE</span></h2>
+        <p class="section-desc">Honor the Lord with your substance. Every seed sowed into God's Kingdom unlocks covenant blessings.</p>
+      </div>
+
+      <!-- Ministry Debit Card Notice -->
+      <div class="giving-debit-notice">
+        <i class="fa-solid fa-circle-info"></i>
+        <div>
+          <strong>THANK YOU FOR GIVING TO WMA – WCI.</strong>
+          <p>BASED ON THE TENET OF THE MINISTRY, WE DO ENCOURAGE YOUR ONLINE GIVING BE MADE THROUGH DEBIT CARD ONLY.</p>
+        </div>
+      </div>
+
+      <!-- 3 Ways To Give Cards Grid -->
+      <div class="ways-to-give-grid">
+        <!-- 1. IN CHURCH -->
+        <div class="give-card give-card-blue">
+          <div class="give-card-header">
+            <div class="give-card-title">
+              <h3>IN CHURCH</h3>
+            </div>
+            <div class="give-card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+          </div>
+          <p class="give-card-desc">
+            During our services, an envelope will be available on the back of the seat in front of you or from our Ushering team which you can complete.
+          </p>
+        </div>
+
+        <!-- 2. BY TEXT -->
+        <div class="give-card give-card-yellow">
+          <div class="give-card-header">
+            <div class="give-card-title">
+              <h3>BY TEXT</h3>
+            </div>
+            <div class="give-card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          </div>
+          <p class="give-card-desc">
+            To start giving, text <strong>GIVE</strong> to <strong>07828589258</strong>
+          </p>
+          <a href="#giving" class="link-red">&gt; Text to give guide</a>
+        </div>
+
+        <!-- 3. TITHE.LY APP -->
+        <div class="give-card give-card-green">
+          <div class="give-card-header">
+            <div class="give-card-title">
+              <h3>TITHE.LY APP</h3>
+            </div>
+            <div class="give-card-icon"><i class="fa-solid fa-mobile-retro"></i></div>
+          </div>
+          <p class="give-card-desc">
+            Download <strong>Tithe.ly</strong> from your app store.
+          </p>
+        </div>
+      </div>
+
+      <!-- Gift Aid Declaration Notice -->
+      <div class="gift-aid-box">
+        <h4><i class="fa-solid fa-shield-heart"></i> UK Gift Aid Declaration</h4>
+        <p>
+          By selecting “Claim Gift Aid” option I authorise WMA-WCI to reclaim tax from HM Revenue & Customs on all donations I make today, in the future or have made in the past 4 years. I am a UK taxpayer and understand that if I pay less Income Tax and/or Capital Gains Tax than the amount of Gift Aid claimed on all donations in that tax year, I would be personally responsible to pay any difference. I am under no obligation to make further donations and I can cancel this declaration at any time by contacting the church office – 01322 292 097 or email: <a href="mailto:financeoffice@winners-chapel.org.uk">financeoffice@winners-chapel.org.uk</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Location, Map & Contact -->
+  <section class="section-padding bg-dark-gradient" id="contact">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading">VISIT US</span>
+        <h2 class="section-title">Location & <span class="highlight-red">Directions</span></h2>
+        <p class="section-desc">We look forward to welcoming you in person!</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div>
+              <h4>Sunday Worship Venue</h4>
+              <p><strong>LEONARDO HOTEL</strong><br>Fry Street, Middlesbrough, TS1 1JH</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-church"></i></div>
+            <div>
+              <h4>Wednesday Midweek Venue</h4>
+              <p><strong>CHURCH OF ASCENSION</strong><br>Penrith Road, Middlesbrough, TS3 7JR</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <h4>Helpline & Pastorate</h4>
+              <p>+44 (0) 7365 437 916 / +44 (0) 7377 621 665</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h4>Email Us</h4>
+              <p>middlesbrough@winnerschapel.org.uk</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-bus"></i></div>
+            <div>
+              <h4>Transportation & Parking</h4>
+              <p>Free on-site parking available. Accessible via Arriva Bus routes 13, 17, and Middlesbrough Train Station (10 mins walk).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-card">
+          <h3>Send Us a Message</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="cName">Your Name</label>
+              <input type="text" id="cName" placeholder="e.g. John Smith" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cEmail">Email Address</label>
+                <input type="email" id="cEmail" placeholder="name@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="cPhone">Phone Number</label>
+                <input type="tel" id="cPhone" placeholder="+44 7123 456789">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cSubject">Inquiry Type</label>
+              <select id="cSubject">
+                <option value="general">General Inquiry</option>
+                <option value="prayer">Prayer Request</option>
+                <option value="firsttimer">First Time Visitor</option>
+                <option value="counseling">Pastoral Counseling</option>
+                <option value="transport">Church Transportation</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cMessage">Message</label>
+              <textarea id="cMessage" rows="4" placeholder="How can we serve you?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo">
+            <img src="/images/logo.png?v=3" alt="Winners Chapel Logo" class="logo-img">
+            <div class="logo-text">
+              <span class="brand-title">WINNERS CHAPEL</span>
+              <span class="brand-title">INTERNATIONAL</span>
+              <span class="brand-sub">MIDDLESBROUGH</span>
+            </div>
+          </div>
+          <p class="footer-tagline">
+            Liberating the world from all oppressions of the devil through the preaching of the Word of Faith.
+          </p>
+          <div class="social-links-list">
+            <a href="https://www.facebook.com/WinnersMiddlesbrough/" target="_blank" rel="noopener" class="social-btn">
+              <i class="fa-brands fa-facebook-f"></i> Winners Chapel International, Middlesbrough
+            </a>
+            <a href="https://www.instagram.com/winnerschapelmiddlesbrough/" target="_blank" rel="noopener" class="social-btn">
+              <i class="fa-brands fa-instagram"></i> @winnerschapelmiddlesbrough
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Service Times</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#testimonies">Testimonies</a></li>
+            <li><a href="#giving">Give Online</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ministries</h4>
+          <ul>
+            <li><a href="#">Youth Alive Fellowship (YAF)</a></li>
+            <li><a href="#">Winners Satellite Fellowship</a></li>
+            <li><a href="#">Kingdom Heritage Model School</a></li>
+            <li><a href="#">Word of Faith Bible Institute (WOFBI)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Middlesbrough Campus</h4>
+          <p><i class="fa-solid fa-location-dot"></i> Leonardo Hotel, Fry Street, Middlesbrough TS1 1JH</p>
+          <p><i class="fa-solid fa-phone"></i> +44 (0) 7365 437 916 / +44 (0) 7377 621 665</p>
+          <p><i class="fa-solid fa-clock"></i> Sunday Service: 10:00 AM</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Winners Chapel International Middlesbrough. Living Faith Church Worldwide. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+
+  <!-- Modal 1: First Timer / Welcome Modal -->
+  <div class="modal-backdrop" id="firstTimerModal">
+    <div class="modal-card">
+      <button class="modal-close" class="btnCloseModal">&times;</button>
+      <div class="modal-header text-center">
+        <i class="fa-solid fa-heart-circle-check modal-icon-red"></i>
+        <h3>Welcome to Winners Chapel Middlesbrough!</h3>
+        <p>We are so glad you are reaching out. Fill in your details so our hospitality team can give you a warm welcome.</p>
+      </div>
+      <form id="firstTimerForm">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" required placeholder="e.g. Samuel Johnson">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" required placeholder="+44 7000 000000">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="samuel@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Location in Middlesbrough / Teesside</label>
+          <input type="text" placeholder="e.g. Linthorpe, TS5">
+        </div>
+        <div class="form-group">
+          <label>Would you like transport assistance on Sunday?</label>
+          <select>
+            <option value="yes">Yes, please arrange pick up</option>
+            <option value="no">No, I have my own transport</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit & Get Welcome Packet</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Prayer Request Modal -->
+  <div class="modal-backdrop" id="prayerModal">
+    <div class="modal-card">
+      <button class="modal-close" class="btnCloseModal">&times;</button>
+      <div class="modal-header text-center">
+        <i class="fa-solid fa-hands-praying modal-icon-red"></i>
+        <h3>Submit Your Prayer Request</h3>
+        <p>Our pastoral team and prayer tower will stand with you in faith. Nothing is impossible with God!</p>
+      </div>
+      <form id="prayerForm">
+        <div class="form-group">
+          <label>Your Name (Optional)</label>
+          <input type="text" placeholder="Keep confidential or enter name">
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select required>
+            <option value="healing">Healing & Health</option>
+            <option value="career">Career / Job / Business</option>
+            <option value="family">Family & Marriage</option>
+            <option value="fruitfulness">Fruitfulness of the Womb</option>
+            <option value="salvation">Spiritual Growth & Deliverance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Prayer Request Details</label>
+          <textarea rows="4" required placeholder="Describe your prayer request here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Prayer Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3: Online Giving Modal -->
+  <div class="modal-backdrop" id="givingModal">
+    <div class="modal-card">
+      <button class="modal-close" class="btnCloseModal">&times;</button>
+      <div class="modal-header text-center">
+        <i class="fa-solid fa-heart modal-icon-red"></i>
+        <h3>Secure Online Offering & Tithe</h3>
+        <p>Living Faith Church Worldwide - Middlesbrough</p>
+      </div>
+      <form id="onlineGivingForm">
+        <div class="form-group">
+          <label>Giving Type</label>
+          <select id="givingTypeSelect" required>
+            <option value="tithe">Tithe</option>
+            <option value="offering">Offering</option>
+            <option value="building">Building Project</option>
+            <option value="shiloh">Kingdom Seed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Amount (£ GBP)</label>
+          <div class="input-currency">
+            <span>£</span>
+            <input type="number" min="1" value="50" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" required placeholder="Name on card">
+        </div>
+        <div class="form-group">
+          <label>Email Receipt To</label>
+          <input type="email" required placeholder="email@domain.com">
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="giftAidCheck" checked>
+            <span><strong>Claim Gift Aid</strong> (+25p for every £1 donated reclaimed from HMRC if you pay UK tax).</span>
+          </label>
+        </div>
+
+        <div class="card-demo-box">
+          <i class="fa-solid fa-credit-card"></i> Debit Card Only • 256-Bit Encrypted Secure UK Payment
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-lock"></i> Process Offering via Debit Card</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 4: Submit Testimony Modal -->
+  <div class="modal-backdrop" id="testimonyModal">
+    <div class="modal-card">
+      <button class="modal-close" class="btnCloseModal">&times;</button>
+      <div class="modal-header text-center">
+        <i class="fa-solid fa-trophy modal-icon-red"></i>
+        <h3>Share Your Praise Report</h3>
+        <p>Overcoming the devil by the blood of the Lamb and the word of our testimony!</p>
+      </div>
+      <form id="testimonyForm">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" required placeholder="e.g. Bro. David">
+        </div>
+        <div class="form-group">
+          <label>Testimony Category</label>
+          <select id="testimonyCatSelect" required>
+            <option value="career">Job & Financial</option>
+            <option value="healing">Healing & Health</option>
+            <option value="family">Family & Marriage</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Write Your Testimony</label>
+          <textarea rows="4" required placeholder="Tell us what God has done..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Publish Praise Report</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification element -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i> <span id="toastMsg">Action completed successfully!</span>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
