@@ -1754,27 +1754,34 @@ img {
 .social-links-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 16px;
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 340px;
 }
 
 .social-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 16px;
   border-radius: var(--radius-sm);
-  color: var(--text-primary);
+  color: #FFFFFF;
   font-size: 0.85rem;
   font-weight: 600;
+  width: 100%;
   transition: all var(--transition-fast);
+  box-sizing: border-box;
 }
 
 .social-btn i {
   color: var(--primary-red-light);
-  font-size: 1rem;
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .social-btn:hover {
@@ -1782,6 +1789,7 @@ img {
   border-color: var(--primary-red);
   color: #FFFFFF;
   transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.4);
 }
 
 .social-btn:hover i {
