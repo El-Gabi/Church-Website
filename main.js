@@ -209,14 +209,205 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 7. WSF Cell Area Filter ---
+  // --- 7. WSF Postcode & Cell Area Filter System ---
+  const wsfPostcodeForm = document.getElementById('wsfPostcodeForm');
+  const wsfPostcodeInput = document.getElementById('wsfPostcodeInput');
   const wsfSelect = document.getElementById('wsfLocationSelect');
   const wsfCards = document.querySelectorAll('.wsf-card');
+  const wsfResultBanner = document.getElementById('wsfSearchResultBanner');
+  const wsfResultText = document.getElementById('wsfResultText');
+  const btnResetPostcode = document.getElementById('btnResetPostcode');
+
+  // Outcode Lat/Lon map for Teesside and UK regions
+  const postcodeCoords = {
+    'TS1': { lat: 54.576, lon: -1.234 },
+    'TS2': { lat: 54.582, lon: -1.220 },
+    'TS3': { lat: 54.568, lon: -1.205 },
+    'TS4': { lat: 54.553, lon: -1.215 },
+    'TS5': { lat: 54.548, lon: -1.246 },
+    'TS6': { lat: 54.565, lon: -1.162 },
+    'TS7': { lat: 54.530, lon: -1.190 },
+    'TS8': { lat: 54.520, lon: -1.220 },
+    'TS9': { lat: 54.470, lon: -1.190 },
+    'TS10': { lat: 54.615, lon: -1.068 },
+    'TS11': { lat: 54.590, lon: -1.020 },
+    'TS12': { lat: 54.580, lon: -0.970 },
+    'TS13': { lat: 54.550, lon: -0.890 },
+    'TS14': { lat: 54.535, lon: -1.050 },
+    'TS15': { lat: 54.510, lon: -1.350 },
+    'TS16': { lat: 54.525, lon: -1.355 },
+    'TS17': { lat: 54.542, lon: -1.300 },
+    'TS18': { lat: 54.565, lon: -1.315 },
+    'TS19': { lat: 54.580, lon: -1.332 },
+    'TS20': { lat: 54.588, lon: -1.318 },
+    'TS21': { lat: 54.650, lon: -1.440 },
+    'TS22': { lat: 54.625, lon: -1.275 },
+    'TS23': { lat: 54.608, lon: -1.285 },
+    'TS24': { lat: 54.685, lon: -1.215 },
+    'TS25': { lat: 54.665, lon: -1.210 },
+    'TS26': { lat: 54.690, lon: -1.225 },
+    'TS27': { lat: 54.720, lon: -1.270 },
+    'TS28': { lat: 54.735, lon: -1.330 },
+    'TS29': { lat: 54.715, lon: -1.380 },
+    'DL1': { lat: 54.527, lon: -1.555 },
+    'DL2': { lat: 54.535, lon: -1.630 },
+    'DL3': { lat: 54.532, lon: -1.570 },
+    'DL4': { lat: 54.605, lon: -1.635 },
+    'DL5': { lat: 54.620, lon: -1.575 },
+    'DL14': { lat: 54.660, lon: -1.680 },
+    'DL15': { lat: 54.700, lon: -1.770 },
+    'DL16': { lat: 54.700, lon: -1.570 },
+    'DL17': { lat: 54.680, lon: -1.510 },
+    'DH1': { lat: 54.775, lon: -1.575 },
+    'SR1': { lat: 54.905, lon: -1.380 },
+    'NE1': { lat: 54.978, lon: -1.617 },
+    'YO1': { lat: 53.958, lon: -1.082 }
+  };
+
+  function calculateDistanceMiles(lat1, lon1, lat2, lon2) {
+    if (!lat1 || !lon1 || !lat2 || !lon2) return 999;
+    const R = 3958.8; // Earth radius in miles
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = 
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  function performPostcodeSearch(query) {
+    if (!query) {
+      resetWsfFilter();
+      return;
+    }
+
+    const cleanedQuery = query.trim().toUpperCase().replace(/\s+/g, '');
+    let userOutcode = '';
+
+    const outcodeMatch = cleanedQuery.match(/^([A-Z]{1,2}\d+[A-Z]?)/);
+    if (outcodeMatch) {
+      userOutcode = outcodeMatch[1];
+    }
+
+    // Determine user coordinates (from lookup table or default to Middlesbrough center)
+    const userCoords = postcodeCoords[userOutcode] || { lat: 54.576, lon: -1.234 };
+
+    // Calculate distance to each cell
+    const cellDistances = [];
+
+    wsfCards.forEach(card => {
+      card.querySelectorAll('.badge-nearest').forEach(b => b.remove());
+      const cardPostcode = (card.dataset.postcode || '').replace(/\s+/g, '');
+      const cardOutcode = card.dataset.outcode || '';
+      const isOnline = cardOutcode === 'ONLINE';
+
+      if (isOnline) {
+        cellDistances.push({ card, dist: 999, isOnline: true, isExact: false, isOutcodeMatch: false });
+        return;
+      }
+
+      const cardLat = parseFloat(card.dataset.lat);
+      const cardLon = parseFloat(card.dataset.lon);
+
+      const isExact = cardPostcode && cleanedQuery.length >= 5 && cardPostcode === cleanedQuery;
+      const isOutcodeMatch = userOutcode && cardOutcode === userOutcode;
+      const dist = calculateDistanceMiles(userCoords.lat, userCoords.lon, cardLat, cardLon);
+
+      cellDistances.push({ card, dist, isOnline: false, isExact, isOutcodeMatch });
+    });
+
+    // Sort physical cells by distance (ascending)
+    cellDistances.sort((a, b) => {
+      if (a.isOnline) return 1;
+      if (b.isOnline) return -1;
+      if (a.isExact) return -1;
+      if (b.isExact) return 1;
+      return a.dist - b.dist;
+    });
+
+    // Determine nearest distance and render badges
+    let closestPhysicalCell = cellDistances.find(item => !item.isOnline);
+    let hasExactMatch = cellDistances.some(item => item.isExact);
+    let hasOutcodeMatch = cellDistances.some(item => item.isOutcodeMatch);
+
+    cellDistances.forEach((item, index) => {
+      const { card, dist, isOnline, isExact, isOutcodeMatch } = item;
+      card.style.display = 'block';
+      card.style.order = String(index);
+
+      if (isExact) {
+        const badge = document.createElement('span');
+        badge.className = 'badge-nearest badge-exact';
+        badge.innerHTML = `<i class="fa-solid fa-location-dot"></i> Exact Match (${card.dataset.postcode})`;
+        card.prepend(badge);
+      } else if (isOutcodeMatch) {
+        const badge = document.createElement('span');
+        badge.className = 'badge-nearest';
+        badge.innerHTML = `<i class="fa-solid fa-location-dot"></i> Matched Area (${card.dataset.outcode} • ~${dist.toFixed(1)} mi)`;
+        card.prepend(badge);
+      } else if (!isOnline && item === closestPhysicalCell) {
+        // If not exact/outcode match, mark the absolute closest cell!
+        const badge = document.createElement('span');
+        badge.className = 'badge-nearest badge-closest';
+        badge.innerHTML = `<i class="fa-solid fa-location-arrow"></i> Closest Home Cell (~${dist.toFixed(1)} miles away)`;
+        card.prepend(badge);
+      }
+    });
+
+    if (wsfResultBanner && wsfResultText) {
+      wsfResultBanner.style.display = 'block';
+      const nearestDist = closestPhysicalCell ? closestPhysicalCell.dist.toFixed(1) : '0.0';
+
+      if (hasExactMatch) {
+        wsfResultText.innerHTML = `Found exact Home Cell match for <strong>"${escapeHtml(query.toUpperCase())}"</strong>!`;
+      } else if (hasOutcodeMatch) {
+        wsfResultText.innerHTML = `Found Home Cells in area <strong>"${escapeHtml(userOutcode)}"</strong> (Nearest is ~${nearestDist} miles away).`;
+      } else {
+        wsfResultText.innerHTML = `Postcode <strong>"${escapeHtml(query.toUpperCase())}"</strong> is not directly in the list — displaying closest home cells ordered by distance (Nearest is approx <strong>${nearestDist} miles away</strong>).`;
+      }
+    }
+  }
+
+  function resetWsfFilter() {
+    if (wsfPostcodeInput) wsfPostcodeInput.value = '';
+    if (wsfSelect) wsfSelect.value = 'all';
+    if (wsfResultBanner) wsfResultBanner.style.display = 'none';
+    
+    wsfCards.forEach(card => {
+      card.style.display = 'block';
+      card.style.order = '0';
+      card.querySelectorAll('.badge-nearest').forEach(b => b.remove());
+    });
+  }
+
+  if (wsfPostcodeForm) {
+    wsfPostcodeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      performPostcodeSearch(wsfPostcodeInput.value);
+    });
+
+    if (wsfPostcodeInput) {
+      wsfPostcodeInput.addEventListener('input', () => {
+        if (!wsfPostcodeInput.value.trim()) {
+          resetWsfFilter();
+        } else {
+          performPostcodeSearch(wsfPostcodeInput.value);
+        }
+      });
+    }
+  }
 
   if (wsfSelect) {
     wsfSelect.addEventListener('change', () => {
       const area = wsfSelect.value;
+      if (wsfResultBanner) wsfResultBanner.style.display = 'none';
+      if (wsfPostcodeInput) wsfPostcodeInput.value = '';
+
       wsfCards.forEach(card => {
+        card.querySelectorAll('.badge-nearest').forEach(b => b.remove());
+        card.style.order = '0';
         if (area === 'all' || card.dataset.area === area) {
           card.style.display = 'block';
         } else {
@@ -224,6 +415,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+  }
+
+  if (btnResetPostcode) {
+    btnResetPostcode.addEventListener('click', resetWsfFilter);
   }
 
 
@@ -301,6 +496,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const serviceName = btn.dataset.service;
       showToast(`Reminder set for ${serviceName}! We look forward to seeing you.`);
+    });
+  });
+
+  document.querySelectorAll('.btnWatchSermon').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showToast('Streaming audio message... Glory to God!');
     });
   });
 

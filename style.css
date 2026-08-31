@@ -1204,8 +1204,75 @@ img {
 
 /* WSF Fellowship Locator */
 .wsf-search-wrapper {
-  max-width: 500px;
-  margin: 30px auto 40px;
+  max-width: 680px;
+  margin: 30px auto 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wsf-postcode-box {
+  background: #FFFFFF;
+  border-radius: var(--radius-full);
+  padding: 6px 8px 6px 24px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.wsf-postcode-box:focus-within {
+  border-color: var(--primary-red);
+  box-shadow: 0 12px 35px var(--primary-red-glow);
+}
+
+.postcode-input-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.postcode-icon {
+  color: var(--primary-red);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.postcode-input-group input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  outline: none;
+}
+
+.postcode-input-group input::placeholder {
+  color: #888A98;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.btn-postcode-search {
+  border-radius: var(--radius-full) !important;
+  padding: 10px 24px !important;
+  font-size: 0.9rem !important;
+}
+
+.wsf-filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark-muted);
 }
 
 .wsf-search-box {
@@ -1213,27 +1280,93 @@ img {
   align-items: center;
   background: #FFFFFF;
   border-radius: var(--radius-full);
-  padding: 6px 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 4px 18px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #E2E4EB;
 }
 
 .wsf-search-box i {
   color: var(--primary-red);
-  font-size: 1.2rem;
-  margin-right: 12px;
+  font-size: 1rem;
+  margin-right: 10px;
 }
 
 .wsf-search-box select {
-  width: 100%;
   border: none;
   background: transparent;
-  padding: 10px 0;
+  padding: 8px 0;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-dark);
   outline: none;
   cursor: pointer;
+}
+
+.wsf-result-banner {
+  background: linear-gradient(135deg, #111116 0%, #1D1D26 100%);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--primary-red);
+  margin-top: 6px;
+  animation: fadeIn 0.3s ease;
+}
+
+.result-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.9rem;
+}
+
+.result-banner-content i {
+  color: var(--accent-gold);
+}
+
+.btn-text-reset {
+  background: none;
+  border: none;
+  color: #FF526C;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-text-reset:hover {
+  text-decoration: underline;
+}
+
+.badge-nearest {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(200, 16, 46, 0.12);
+  color: var(--primary-red);
+  border: 1px solid rgba(200, 16, 46, 0.3);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-exact {
+  background: rgba(0, 184, 148, 0.15) !important;
+  color: #00B894 !important;
+  border-color: rgba(0, 184, 148, 0.4) !important;
+}
+
+.badge-closest {
+  background: rgba(255, 152, 0, 0.15) !important;
+  color: #FF9800 !important;
+  border-color: rgba(255, 152, 0, 0.4) !important;
 }
 
 .wsf-grid {
@@ -1525,7 +1658,7 @@ img {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1.1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 50px;
   margin-bottom: 50px;
   align-items: start;

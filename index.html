@@ -46,13 +46,14 @@
         <a href="#home" class="nav-link active">Home</a>
         <a href="#services" class="nav-link">Service&nbsp;Times</a>
         <a href="#about" class="nav-link">About&nbsp;Us</a>
+        <a href="#media" class="nav-link">Media&nbsp;&amp;&nbsp;Live</a>
         <a href="#testimonies" class="nav-link">Testimonies</a>
         <a href="#wsf" class="nav-link">WSF&nbsp;Cells</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="#giving" class="btn btn-outline"><i class="fa-solid fa-hand-holding-heart"></i> Ways&nbsp;to&nbsp;Give</a>
+        <button class="btn btn-outline" id="btnGivingNav"><i class="fa-solid fa-hand-holding-heart"></i> Ways&nbsp;to&nbsp;Give</button>
         <button class="btn btn-primary" id="btnFirstTimerNav"><i class="fa-solid fa-user-plus"></i> I'm&nbsp;New&nbsp;Here</button>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
           <i class="fa-solid fa-bars"></i>
@@ -77,7 +78,7 @@
 
       <div class="hero-buttons">
         <a href="#services" class="btn btn-primary btn-lg"><i class="fa-solid fa-calendar-check"></i> Join Us This Sunday</a>
-        <a href="#services" class="btn btn-glass btn-lg"><i class="fa-solid fa-clock"></i> Service Times</a>
+        <button class="btn btn-glass btn-lg" id="btnWatchLiveHero"><i class="fa-solid fa-circle-play"></i> Watch Live Stream</button>
         <button class="btn btn-outline-white btn-lg" id="btnPrayerHero"><i class="fa-solid fa-hands-praying"></i> Submit Prayer Request</button>
       </div>
 
@@ -267,7 +268,156 @@
     </div>
   </section>
 
+  <!-- Media, Live Broadcast & Sermon Notes Section -->
+  <section class="section-padding bg-dark" id="media">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading">LIVE & MEDIA CENTER</span>
+        <h2 class="section-title">Worship Online & <span class="highlight-red">Sermon Archive</span></h2>
+        <p class="section-desc">Join our live broadcasts, listen to recent anointed messages, take interactive notes, and view church highlights.</p>
+      </div>
 
+      <div class="media-tabs">
+        <button class="media-tab active" data-tab="live"><i class="fa-solid fa-tower-broadcast"></i> Live Stream & Chat</button>
+        <button class="media-tab" data-tab="sermons"><i class="fa-solid fa-circle-play"></i> Featured Messages</button>
+        <button class="media-tab" data-tab="notepad"><i class="fa-solid fa-pen-to-square"></i> Sermon Notepad</button>
+        <button class="media-tab" data-tab="gallery"><i class="fa-solid fa-images"></i> Church Gallery</button>
+      </div>
+
+      <!-- Tab 1: Live Stream & Chat -->
+      <div class="tab-content active" id="tab-live">
+        <div class="stream-layout">
+          <div class="video-container">
+            <div class="video-overlay-info"><span class="live-dot"></span> LIVE FROM MIDDLESBROUGH</div>
+            <div style="position:relative; width:100%; aspect-ratio:16/9; background:#000; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('/images/hero_worship.png'); background-size:cover; background-position:center; border-radius:12px;">
+              <i class="fa-solid fa-circle-play" style="font-size: 4rem; color: var(--primary-red); cursor: pointer; filter: drop-shadow(0 0 20px rgba(200,16,46,0.8)); margin-bottom: 16px;"></i>
+              <h3 style="color:#FFF; font-family:var(--font-heading); font-size:1.5rem; margin-bottom:8px;">Sunday Celebration & Midweek Service Broadcast</h3>
+              <p style="color:var(--text-secondary); font-size:0.95rem; max-width:500px; margin-bottom:20px;">Click play to tune in to the live feed from Leonardo Hotel, Middlesbrough.</p>
+              <a href="https://www.youtube.com/@WinnersChapelUK" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-brands fa-youtube"></i> Open YouTube Live Channel</a>
+            </div>
+          </div>
+          <div class="stream-chat-side">
+            <div class="chat-header"><i class="fa-solid fa-comments"></i> Live Service Chat & Praise</div>
+            <div class="chat-messages" id="chatBox">
+              <div class="chat-msg system-msg"><strong>Host:</strong> Welcome to Winners Chapel Middlesbrough Live Stream! Share your prayers, amen declarations, and testimonies here.</div>
+            </div>
+            <form class="chat-input-form" id="chatForm">
+              <input type="text" id="chatInput" placeholder="Type your praise message..." required>
+              <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Featured Messages -->
+      <div class="tab-content" id="tab-sermons">
+        <div class="sermons-grid">
+          <div class="sermon-card">
+            <div class="sermon-thumb">
+              <img src="/images/hero_worship.png" alt="Understanding the Wonders of Faith">
+              <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="sermon-details">
+              <span class="sermon-date">SUNDAY SERVICE • AUG 2026</span>
+              <h4>Understanding The Wonders of Faith</h4>
+              <p>Bishop David Oyedepo teaches on unlocking supernatural dominion through unwavering faith in the Word.</p>
+              <button class="btn btn-sm btn-outline-white btnWatchSermon" style="width:100%;"><i class="fa-solid fa-headphones"></i> Listen Now</button>
+            </div>
+          </div>
+
+          <div class="sermon-card">
+            <div class="sermon-thumb">
+              <img src="/images/worship_choir.png" alt="Engaging the Miracle Power of Holy Communion">
+              <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="sermon-details">
+              <span class="sermon-date">MIDWEEK SERVICE • AUG 2026</span>
+              <h4>The Miracle Power of Holy Communion</h4>
+              <p>Discover divine health, restoration, and spiritual strength available at the Lord's Table.</p>
+              <button class="btn btn-sm btn-outline-white btnWatchSermon" style="width:100%;"><i class="fa-solid fa-headphones"></i> Listen Now</button>
+            </div>
+          </div>
+
+          <div class="sermon-card">
+            <div class="sermon-thumb">
+              <img src="/images/church_building.png" alt="Commanding Financial Dominion">
+              <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="sermon-details">
+              <span class="sermon-date">ANNOINTING SERVICE • AUG 2026</span>
+              <h4>Commanding Financial Dominion</h4>
+              <p>Covenant secrets for supernatural abundance and breakthrough in business and career.</p>
+              <button class="btn btn-sm btn-outline-white btnWatchSermon" style="width:100%;"><i class="fa-solid fa-headphones"></i> Listen Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Sermon Notepad -->
+      <div class="tab-content" id="tab-notepad">
+        <div class="notebook-wrapper">
+          <div class="notebook-header">
+            <h3><i class="fa-solid fa-book-bookmark"></i> Digital Sermon Notepad</h3>
+            <p>Write your sermon notes during service. Click "Download Notes" to save a formatted .txt copy straight to your device!</p>
+          </div>
+          <div class="notebook-inputs">
+            <input type="text" id="noteTitle" placeholder="Message Title (e.g. Wonders of Faith)">
+            <input type="text" id="notePreacher" placeholder="Preacher Name (e.g. Resident Pastor)">
+          </div>
+          <div class="notebook-body" style="margin-bottom:16px;">
+            <textarea id="noteContent" rows="8" placeholder="Type your sermon notes, Bible references, and personal revelations here..."></textarea>
+          </div>
+          <div class="notebook-actions" style="display:flex; gap:12px;">
+            <button class="btn btn-primary" id="btnSaveNotes"><i class="fa-solid fa-download"></i> Download Notes (.txt)</button>
+            <button class="btn btn-outline" id="btnClearNotes"><i class="fa-solid fa-trash"></i> Clear Notepad</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Church Gallery -->
+      <div class="tab-content" id="tab-gallery">
+        <div class="sermons-grid">
+          <div class="sermon-card">
+            <div class="sermon-thumb" style="height:220px;">
+              <img src="/images/pastor_welcome.png" alt="Winners Chapel Middlesbrough Sanctuary">
+            </div>
+            <div class="sermon-details">
+              <h4>Resident Pastorate</h4>
+              <p>Warm welcome to all nations & families in Teesside</p>
+            </div>
+          </div>
+          <div class="sermon-card">
+            <div class="sermon-thumb" style="height:220px;">
+              <img src="/images/hero_worship.png" alt="Worship Celebration">
+            </div>
+            <div class="sermon-details">
+              <h4>Sunday Praise & Worship</h4>
+              <p>High energetic praise and vibrant atmosphere of God's presence</p>
+            </div>
+          </div>
+          <div class="sermon-card">
+            <div class="sermon-thumb" style="height:220px;">
+              <img src="/images/worship_choir.png" alt="Winners Voice Choir">
+            </div>
+            <div class="sermon-details">
+              <h4>Winners Voice Middlesbrough</h4>
+              <p>Anointed worship team leading congregation into God's presence</p>
+            </div>
+          </div>
+          <div class="sermon-card">
+            <div class="sermon-thumb" style="height:220px;">
+              <img src="/images/church_building.png" alt="Leonardo Hotel Venue">
+            </div>
+            <div class="sermon-details">
+              <h4>Leonardo Hotel Worship Center</h4>
+              <p>Fry Street, Middlesbrough (TS1 1JH)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   <!-- Praise Reports & Testimonies Grid -->
   <section class="section-padding bg-dark-gradient" id="testimonies">
@@ -356,26 +506,52 @@
         <p class="section-desc">Connect with a home cell near you in Middlesbrough every Saturday @ 5:00 PM - 6:00 PM.</p>
       </div>
 
+      <!-- WSF Postcode & Region Search Wrapper -->
       <div class="wsf-search-wrapper">
-        <div class="wsf-search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <select id="wsfLocationSelect">
-            <option value="all">All Home Cells (14 Locations)...</option>
-            <option value="ts1">Middlesbrough Central (TS1)</option>
-            <option value="ts3">Middlesbrough East / TS3</option>
-            <option value="acklam">Acklam & TS5</option>
-            <option value="thornaby">Thornaby & Stockton (TS17 / TS19)</option>
-            <option value="billingham">Billingham (TS23)</option>
-            <option value="southbank">South Bank (TS6)</option>
-            <option value="darlington">Darlington (DL1)</option>
-            <option value="online">Online Cell (MS Teams)</option>
-          </select>
+        <!-- Postcode Search Form -->
+        <form class="wsf-postcode-box" id="wsfPostcodeForm">
+          <div class="postcode-input-group">
+            <i class="fa-solid fa-location-crosshairs postcode-icon"></i>
+            <input type="text" id="wsfPostcodeInput" placeholder="Enter your UK Postcode (e.g. TS1 4NX, TS5 4NY, TS3)..." aria-label="Enter your postcode">
+            <button type="submit" class="btn btn-primary btn-postcode-search" id="btnSearchPostcode">
+              <i class="fa-solid fa-magnifying-glass"></i> Find Cell
+            </button>
+          </div>
+        </form>
+
+        <div class="wsf-filter-row">
+          <span class="filter-label">or filter by region:</span>
+          <div class="wsf-search-box">
+            <i class="fa-solid fa-filter"></i>
+            <select id="wsfLocationSelect">
+              <option value="all">All Home Cells (14 Locations)...</option>
+              <option value="ts1">Middlesbrough Central (TS1)</option>
+              <option value="ts3">Middlesbrough East / TS3</option>
+              <option value="acklam">Acklam & TS5</option>
+              <option value="thornaby">Thornaby & Stockton (TS17 / TS19)</option>
+              <option value="billingham">Billingham (TS23)</option>
+              <option value="southbank">South Bank (TS6)</option>
+              <option value="darlington">Darlington (DL1)</option>
+              <option value="online">Online Cell (MS Teams)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Postcode Search Result Feedback Banner -->
+        <div id="wsfSearchResultBanner" class="wsf-result-banner" style="display: none;">
+          <div class="result-banner-content">
+            <div>
+              <i class="fa-solid fa-compass"></i>
+              <span id="wsfResultText">Showing home cells near <strong>TS1 4NX</strong></span>
+            </div>
+            <button type="button" id="btnResetPostcode" class="btn-text-reset"><i class="fa-solid fa-xmark"></i> Clear Search</button>
+          </div>
         </div>
       </div>
 
       <div class="wsf-grid" id="wsfGrid">
         <!-- 1. Anointed Home Cell -->
-        <div class="wsf-card" data-area="darlington">
+        <div class="wsf-card" data-area="darlington" data-postcode="DL1 1UP" data-outcode="DL1" data-lat="54.527" data-lon="-1.555">
           <div class="wsf-icon"><i class="fa-solid fa-fire"></i></div>
           <h4>1. Anointed Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> Flat, 22 High Northgate, Darlington (DL1 1UP)</p>
@@ -385,7 +561,7 @@
         </div>
 
         <!-- 2. Breakthrough Home Cell -->
-        <div class="wsf-card" data-area="ts1">
+        <div class="wsf-card" data-area="ts1" data-postcode="TS1 4NX" data-outcode="TS1" data-lat="54.576" data-lon="-1.234">
           <div class="wsf-icon"><i class="fa-solid fa-bolt"></i></div>
           <h4>2. Breakthrough Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 30 Warwick Street, Middlesbrough (TS1 4NX)</p>
@@ -395,7 +571,7 @@
         </div>
 
         <!-- 3. Flourish Home Cell -->
-        <div class="wsf-card" data-area="thornaby">
+        <div class="wsf-card" data-area="thornaby" data-postcode="TS17 8FT" data-outcode="TS17" data-lat="54.542" data-lon="-1.300">
           <div class="wsf-icon"><i class="fa-solid fa-seedling"></i></div>
           <h4>3. Flourish Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 11 Blencathra Close, Thornaby (TS17 8FT)</p>
@@ -405,7 +581,7 @@
         </div>
 
         <!-- 4. Gilead Home Cell -->
-        <div class="wsf-card" data-area="ts1">
+        <div class="wsf-card" data-area="ts1" data-postcode="TS1 4PQ" data-outcode="TS1" data-lat="54.575" data-lon="-1.236">
           <div class="wsf-icon"><i class="fa-solid fa-heart-pulse"></i></div>
           <h4>4. Gilead Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 10 Aire Street, Middlesbrough (TS1 4PQ)</p>
@@ -415,7 +591,7 @@
         </div>
 
         <!-- 5. Glory Home Cell -->
-        <div class="wsf-card" data-area="ts1">
+        <div class="wsf-card" data-area="ts1" data-postcode="TS1 4PR" data-outcode="TS1" data-lat="54.577" data-lon="-1.232">
           <div class="wsf-icon"><i class="fa-solid fa-sun"></i></div>
           <h4>5. Glory Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 85 Harford Street, Middlesbrough (TS1 4PR)</p>
@@ -425,7 +601,7 @@
         </div>
 
         <!-- 6. Highway Home Cell -->
-        <div class="wsf-card" data-area="thornaby">
+        <div class="wsf-card" data-area="thornaby" data-postcode="TS19 8GG" data-outcode="TS19" data-lat="54.580" data-lon="-1.332">
           <div class="wsf-icon"><i class="fa-solid fa-route"></i></div>
           <h4>6. Highway Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 30 Watering Drive, Summerville Quarters (TS19 8GG)</p>
@@ -435,7 +611,7 @@
         </div>
 
         <!-- 7. Honour Home Cell -->
-        <div class="wsf-card" data-area="ts3">
+        <div class="wsf-card" data-area="ts3" data-postcode="TS3 0RA" data-outcode="TS3" data-lat="54.568" data-lon="-1.205">
           <div class="wsf-icon"><i class="fa-solid fa-crown"></i></div>
           <h4>7. Honour Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 44 Midville Walk (TS3 0RA)</p>
@@ -445,7 +621,7 @@
         </div>
 
         <!-- 8. Hope Home Cell -->
-        <div class="wsf-card" data-area="acklam">
+        <div class="wsf-card" data-area="acklam" data-postcode="TS5 4NY" data-outcode="TS5" data-lat="54.548" data-lon="-1.246">
           <div class="wsf-icon"><i class="fa-solid fa-anchor"></i></div>
           <h4>8. Hope Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 28 Henwood Close, Acklam (TS5 4NY)</p>
@@ -455,7 +631,7 @@
         </div>
 
         <!-- 9. Mercy Home Cell -->
-        <div class="wsf-card" data-area="ts1">
+        <div class="wsf-card" data-area="ts1" data-postcode="TS1 3HB" data-outcode="TS1" data-lat="54.572" data-lon="-1.230">
           <div class="wsf-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
           <h4>9. Mercy Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 145 Southfield Road, Middlesbrough (TS1 3HB)</p>
@@ -465,7 +641,7 @@
         </div>
 
         <!-- 10. New Era Home Cell -->
-        <div class="wsf-card" data-area="billingham">
+        <div class="wsf-card" data-area="billingham" data-postcode="TS23 3TJ" data-outcode="TS23" data-lat="54.608" data-lon="-1.285">
           <div class="wsf-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
           <h4>10. New Era Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 23 Leeholme Garden, Billingham (TS23 3TJ)</p>
@@ -475,7 +651,7 @@
         </div>
 
         <!-- 11. Solution Home Cell -->
-        <div class="wsf-card" data-area="ts3">
+        <div class="wsf-card" data-area="ts3" data-postcode="TS3 8HL" data-outcode="TS3" data-lat="54.566" data-lon="-1.200">
           <div class="wsf-icon"><i class="fa-solid fa-key"></i></div>
           <h4>11. Solution Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 14 Arundel Green (TS3 8HL)</p>
@@ -485,7 +661,7 @@
         </div>
 
         <!-- 12. Victory Home Cell -->
-        <div class="wsf-card" data-area="southbank">
+        <div class="wsf-card" data-area="southbank" data-postcode="TS6 6SH" data-outcode="TS6" data-lat="54.565" data-lon="-1.162">
           <div class="wsf-icon"><i class="fa-solid fa-trophy"></i></div>
           <h4>12. Victory Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 7 Stephens Road, South Bank, Middlesbrough (TS6 6SH)</p>
@@ -495,7 +671,7 @@
         </div>
 
         <!-- 13. Wonders Home Cell -->
-        <div class="wsf-card" data-area="ts3">
+        <div class="wsf-card" data-area="ts3" data-postcode="TS3 8JZ" data-outcode="TS3" data-lat="54.569" data-lon="-1.198">
           <div class="wsf-icon"><i class="fa-solid fa-star"></i></div>
           <h4>13. Wonders Home Cell</h4>
           <p class="wsf-address"><i class="fa-solid fa-location-dot"></i> 96 Cottingham Drive, Middlesbrough (TS3 8JZ)</p>
@@ -505,7 +681,7 @@
         </div>
 
         <!-- 14. Faith Home Cell (Online) -->
-        <div class="wsf-card" data-area="online">
+        <div class="wsf-card" data-area="online" data-postcode="ONLINE" data-outcode="ONLINE" data-lat="0" data-lon="0">
           <div class="wsf-icon"><i class="fa-solid fa-laptop-code"></i></div>
           <h4>14. Faith Home Cell (Online)</h4>
           <p class="wsf-address"><i class="fa-solid fa-video"></i> Microsoft Teams Platform</p>
