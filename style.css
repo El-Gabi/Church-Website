@@ -358,7 +358,7 @@ img {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 5px;
   flex-wrap: nowrap;
   flex-shrink: 0;
   margin-left: auto;
@@ -866,6 +866,45 @@ img {
 
 .about-image-wrapper:hover .about-img {
   transform: scale(1.02);
+}
+
+.pastor-caption-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 5;
+  background: rgba(12, 12, 16, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 4px solid var(--primary-red);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: transform var(--transition-fast);
+}
+
+.about-image-wrapper:hover .pastor-caption-overlay {
+  transform: translateY(-3px);
+}
+
+.pastor-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.pastor-title {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 2px;
 }
 
 .about-experience-badge {
