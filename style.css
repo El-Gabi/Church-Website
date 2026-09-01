@@ -842,11 +842,30 @@ img {
 
 .about-image-wrapper {
   position: relative;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, #08080B 0%, #161620 100%);
+  padding: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(200, 16, 46, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-img {
-  border-radius: var(--radius-lg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-height: 550px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: calc(var(--radius-lg) - 4px);
+  mask-image: radial-gradient(ellipse at center 48%, black 70%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at center 48%, black 70%, transparent 100%);
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4));
+  transition: transform var(--transition-normal);
+}
+
+.about-image-wrapper:hover .about-img {
+  transform: scale(1.02);
 }
 
 .about-experience-badge {
