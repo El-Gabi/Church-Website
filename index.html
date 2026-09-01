@@ -64,7 +64,16 @@
 
   <!-- Hero Section -->
   <section class="hero-section" id="home">
+    <!-- Slideshow Background Images -->
+    <div class="hero-slider-bg" id="heroSliderBg">
+      <div class="hero-slide active" style="background-image: url('/images/hero_slide_1.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('/images/hero_slide_2.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('/images/hero_slide_3.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('/images/hero_slide_4.jpg');"></div>
+    </div>
+
     <div class="hero-overlay"></div>
+
     <div class="container hero-content">
       <div class="hero-badge">
         <i class="fa-solid fa-crown"></i> LIVING FAITH CHURCH WORLDWIDE
@@ -106,6 +115,18 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Hero Slideshow Controls -->
+    <div class="hero-slider-controls">
+      <button class="hero-slide-btn" id="btnHeroPrev" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="hero-slide-dots" id="heroSlideDots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+      </div>
+      <button class="hero-slide-btn" id="btnHeroNext" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
   </section>
 
@@ -225,7 +246,7 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-image-wrapper">
-          <img src="/images/pastor_welcome.png" alt="Resident Pastor Winners Chapel Middlesbrough" class="about-img main-img">
+          <img src="/public/images/pastor_welcome.jpg" alt="Resident Pastor Winners Chapel Middlesbrough" class="about-img main-img">
           <div class="about-experience-badge">
             <span class="big-number">12</span>
             <span class="badge-text">Pillars of the Liberation Mandate</span>

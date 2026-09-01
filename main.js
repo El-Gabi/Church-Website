@@ -2,6 +2,86 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- 0. Hero Background Slideshow System ---
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('#heroSlideDots .dot');
+  const btnHeroPrev = document.getElementById('btnHeroPrev');
+  const btnHeroNext = document.getElementById('btnHeroNext');
+  const heroSection = document.getElementById('home');
+
+  let currentSlide = 0;
+  let slideInterval = null;
+  const SLIDE_DURATION = 5000; // 5 seconds
+
+  function goToSlide(index) {
+    if (!heroSlides.length) return;
+    
+    currentSlide = (index + heroSlides.length) % heroSlides.length;
+
+    heroSlides.forEach((slide, idx) => {
+      if (idx === currentSlide) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    heroDots.forEach((dot, idx) => {
+      if (idx === currentSlide) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  function nextSlide() {
+    goToSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentSlide - 1);
+  }
+
+  function startSlideTimer() {
+    stopSlideTimer();
+    slideInterval = setInterval(nextSlide, SLIDE_DURATION);
+  }
+
+  function stopSlideTimer() {
+    if (slideInterval) clearInterval(slideInterval);
+  }
+
+  if (heroSlides.length) {
+    startSlideTimer();
+
+    if (btnHeroNext) {
+      btnHeroNext.addEventListener('click', () => {
+        nextSlide();
+        startSlideTimer();
+      });
+    }
+
+    if (btnHeroPrev) {
+      btnHeroPrev.addEventListener('click', () => {
+        prevSlide();
+        startSlideTimer();
+      });
+    }
+
+    heroDots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        goToSlide(idx);
+        startSlideTimer();
+      });
+    });
+
+    if (heroSection) {
+      heroSection.addEventListener('mouseenter', stopSlideTimer);
+      heroSection.addEventListener('mouseleave', startSlideTimer);
+    }
+  }
+
   // --- 1. Service Countdown System ---
   function updateServiceCountdown() {
     const now = new Date();

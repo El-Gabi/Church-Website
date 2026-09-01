@@ -416,30 +416,113 @@ img {
   cursor: pointer;
 }
 
-/* Hero Section */
+/* Hero Section & Background Slideshow */
 .hero-section {
   position: relative;
-  min-height: 85vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
-  background: url('/images/hero_worship.png') center/cover no-repeat;
-  padding: 100px 0 60px;
+  overflow: hidden;
+  padding: 110px 0 70px;
+  background-color: var(--dark-bg);
+}
+
+.hero-slider-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.4s ease-in-out, transform 7s ease-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1.02);
+  z-index: 1;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background: linear-gradient(180deg, 
-    rgba(12, 12, 15, 0.75) 0%, 
-    rgba(12, 12, 15, 0.9) 70%, 
+    rgba(12, 12, 15, 0.65) 0%, 
+    rgba(12, 12, 15, 0.88) 70%, 
     var(--dark-bg) 100%),
-    radial-gradient(circle at 80% 20%, rgba(200, 16, 46, 0.25) 0%, transparent 50%);
+    radial-gradient(circle at 85% 20%, rgba(200, 16, 46, 0.35) 0%, transparent 55%);
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 900px;
+}
+
+.hero-slider-controls {
+  position: absolute;
+  bottom: 25px;
+  right: 36px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(12, 12, 15, 0.65);
+  backdrop-filter: blur(12px);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-slide-btn {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast);
+}
+
+.hero-slide-btn:hover {
+  color: var(--primary-red-light);
+}
+
+.hero-slide-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.dot.active {
+  background: var(--primary-red);
+  width: 22px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--primary-red-glow);
 }
 
 .hero-badge {
